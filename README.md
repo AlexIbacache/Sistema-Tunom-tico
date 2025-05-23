@@ -71,7 +71,23 @@ Este diseño separa claramente las responsabilidades: el gestor administra el fl
 - El cliente se comunica con el servidor vía REST API.
 - El servidor interactúa con la base de datos mediante JDBC/ORM.
 - El servidor usa los adaptadores para enviar notificaciones vía HTTP o SMTP a servicios externos.
-- 
+
+##  🧱 Justificación Arquitectónica de los Patrones Aplicados
+La arquitectura del sistema Tunomático se diseñó con el objetivo de mantener una estructura escalable, mantenible y desacoplada. Para ello, se aplicaron conscientemente los siguientes patrones de diseño:
+
+### 🔒 Singleton (GestorTurnos)
+El patrón Singleton fue implementado en la clase GestorTurnos para garantizar una única instancia global que coordine la asignación, consulta y cancelación de turnos. Esta decisión arquitectónica asegura el control centralizado del flujo de turnos, evitando inconsistencias o múltiples puntos de modificación que podrían comprometer la lógica del negocio.
+
+### 🧬 Prototype (Turno)
+El patrón Prototype se aplicó en la clase Turno para permitir la clonación eficiente de instancias al generar nuevos turnos a partir de configuraciones comunes. Esta elección es especialmente útil cuando múltiples clientes solicitan turnos similares y se requiere replicar objetos con ligeras modificaciones, sin construirlos desde cero.
+
+### 🔌 Adapter (SMSAdapter, EmailAdapter)
+Para integrar canales de notificación externos (como SMS y correo electrónico), se empleó el patrón Adapter. SMSAdapter y EmailAdapter actúan como envoltorios que adaptan la interfaz interna del sistema (INotificador) a servicios externos específicos. Esta separación permite cambiar de proveedor (por ejemplo, Twilio a Nexmo o SendGrid a SMTP) sin modificar el núcleo de la aplicación.
+
+### 🌉 Bridge (Servicio, ServicioPresencial, ServicioVirtual)
+La jerarquía de servicios se diseñó utilizando el patrón Bridge, separando la abstracción Servicio de sus implementaciones concretas (ServicioPresencial y ServicioVirtual). Este patrón permite modificar o extender la forma de atención sin afectar la lógica general de gestión, facilitando futuras extensiones como servicios híbridos o con atención asincrónica.
+
+
 ---
 
 ## 🧠 Reflexiones Finales
