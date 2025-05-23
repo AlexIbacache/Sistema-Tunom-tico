@@ -15,7 +15,7 @@ Notificaciones por correo/SMS.
 
 ## 🎯 Casos de Uso
 
-![Diagrama de Casos de Uso UML](imagenes/DiagramaCasoUso)
+![Diagrama de Casos de Uso UML](Imagenes/DiagramaCasoUso)
 
 ### ✅ Descripción
 
@@ -35,7 +35,7 @@ Notificaciones por correo/SMS.
 
 ## 🧩 Diagrama de Clases UML
 
-![Diagrama de Clases UML](imagenes/DiagramaClases)
+![Diagrama de Clases UML](Imagenes/DiagramaClases)
 
 ### ✅ Descripción de la Arquitectura Lógica
 
@@ -54,7 +54,7 @@ Este diseño separa claramente las responsabilidades: el gestor administra el fl
 
 ## ⚙️ Diagrama de Implementación UML
 
-![Diagrama de Implementación UML](imagenes/DiagramaImplementacion)
+![Diagrama de Implementación UML](Imagenes/DiagramaImplementacion)
 
 ### 🖥️ Nodos y Componentes
 
